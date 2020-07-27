@@ -19,11 +19,11 @@ Then we merge "subject_test" and "subject_train" into one data set  called "subj
 We need then to read "features.txt" , to extract the features names and assign them to the "features_data" data set.
 Finally , we merge all together into a big data set called "merge_data".
 
-2)Extracts only the measurements on the mean and standard deviation for each measurement:
+2) Extracts only the measurements on the mean and standard deviation for each measurement:
 First we must look out for "mean" and "std" in the data set "merge_data", so we use grep() on the features names and create a data set called "extract_info".
 Then create a data set called "Data" with the subject and activity information as well (from the data set "merge_data").
 
-3)Uses descriptive activity names to name the activities in the data set:
+3) Uses descriptive activity names to name the activities in the data set:
 We open up "activity_labels.txt" and assign to each value in the activity variable the proper name, how is show here:
 1  goes by WALKING
 2  goes by WALKING_UPSTAIRS
@@ -32,18 +32,18 @@ We open up "activity_labels.txt" and assign to each value in the activity variab
 5  goes by STANDING
 6  goes by LAYING
 
-4)Appropriately labels the data set with descriptive variable names:
+4) Appropriately labels the data set with descriptive variable names:
 After reading the "features_info.txt" document ,using gsub() we change "t" with "Time", "f" with "Frequency","Acc" with "Accelerometer", "Gyro" with "Gyroscope","Mag" with "Magnitude" and "BodyBody" with "Body" in the data set called "Data".
 
-5)From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject:
+5) From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject:
 First we download the package dplyr and search for it's library.
 Then using group_by(), which takes an existing table ("Subject" & "Activity") and converts it into a grouped table where operations are performed "by group".The result data is called "Grouped" and with it we apply summarise_all() with the mean function to create a new data set called "Data2".
 
 # Code book
 The data used was:
-*subject - ID of participant
-*activity - ID of activity type
-*Mean and standart deviation for the following features:
+1) subject - ID of participant
+2) activity - ID of activity type
+3) Mean and standart deviation for the following features:
   -tBodyAcc-XYZ
   -tGravityAcc-XYZ
   -tBodyAccJerk-XYZ
@@ -69,7 +69,7 @@ Finally a Fast Fourier Transform (FFT) was applied to some of these signals prod
 
 These signals were used to estimate variables of the feature vector for each pattern:
 '-XYZ' is used to denote 3-axial signals in the X, Y and Z directions.
-For the activity, as mention before, there is used the activity labels:
+4) For the activity, as mention before, there is used the activity labels:
 1 == WALKING
 2 == WALKING_UPSTAIRS
 3 == WALKING_DOWNSTAIRS
